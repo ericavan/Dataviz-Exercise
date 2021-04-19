@@ -17,7 +17,21 @@
 
         console.log("MAKING SOME CHARTS...")
 
-        // SETUP
+       // EXAMPLE FROM THE DOCS
+        // https://plotly.com/javascript/bar-charts/
+       // var data = [
+       //     {
+      //          x: ['giraffes', 'orangutans', 'monkeys'],
+       //         y: [20, 14, 23],
+       //         type: 'bar'
+       //     }
+      //  ];
+       // Plotly.newPlot('bar-chart-container', data)
+       
+       
+       
+       
+       // SETUP
 
         var barData = [
             {"genre": "Thriller", "viewers": 123456},
@@ -33,6 +47,59 @@
 
         console.log("BAR DATA", barData)
         // todo: write some JavaScript here!
+
+        
+        // put genres on our x axis
+        // put viewers on the y axis
+            //var x = ['giraffes', 'orangutans', 'monkeys']
+            //var y = [20, 14, 23]
+       
+        
+        
+        var genres = []
+        var viewers = []
+
+       // barData.forEach(function(item){
+       //     genres.push(item["genre"])
+       //     viewers.push(item["viewers"])
+
+       // })
+       // console.log("GENRES", genres)
+       // console.log("VIEWERS", viewers)
+
+
+    //MAPPING: SECOND WAY TO DO THE SAME AS ABOVE WITH ONE LINE OF CODE
+        var genres = barData.map(function(item){
+            return item["genre"]
+        })
+        var viewers = barData.map(function(item){
+            return item["viewers"]
+        })
+
+
+       
+       //MAPPING: THIRD WAY TO DO THE SAME AS ABOVE WITH ONE LINE OF CODE
+
+        var genres = barData.map(item => item["genre"])
+        var viewers = barData.map(item => item["viewers"])
+
+
+
+
+       //BELOW IS STUFF YOU KEEP FOR ALL THREE EXAMPLES
+       
+        console.log("GENRES", genres)
+        console.log("VIEWERS", viewers)
+
+        //modify this example, passing in some aspects of our data structure
+        var data = [{x: genres, y: viewers, type: 'bar'}];
+        Plotly.newPlot('bar-chart-container', data)
+
+    
+
+
+
+
 
 
     </script>
